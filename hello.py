@@ -10,7 +10,7 @@ def main():
     """Self contained program. The definition of MAX above will determine
        how many jars/numbers to solve for. The output is obviously more
        easily read with 10.
-    """    
+    """
     random_list = random.sample(range(MAX), MAX)
     series_list = []
 
@@ -28,12 +28,12 @@ def main():
 
 def populate_series_list(random_list, series_list):
     """Taking the list of randomized numbers (representing the
-       number in a jar), and a series_list which can hold 
+       number in a jar), and a series_list which can hold
        a list of lists. This will hold the series as they are
        traversed.
 
-       Currently a series is made for every possible starting 
-       point. It would be more efficient to keep a running 
+       Currently a series is made for every possible starting
+       point. It would be more efficient to keep a running
        list of sorted indexes and choose the next starting
        point from the lowest value not in that list. This
        could complete when the result is == MAX. For the small
@@ -42,16 +42,16 @@ def populate_series_list(random_list, series_list):
 
        As a series is traced, its length is calculated. As soon
        as a length is > HALF we have found a series that encompases
-       more than HALF of the set. The last and HALF-1 (accounting 
-       for zero based list) and the last in series indexes are 
+       more than HALF of the set. The last and HALF-1 (accounting
+       for zero based list) and the last in series indexes are
        swapped. (This is the puzzle one time swap.) A text message
        will be output and a positive value is immediately returned
-       from the function. 
+       from the function.
 
        If none is found to be too long, no indexes are swapped
-       and the series_list is populated. A zero is returned in 
+       and the series_list is populated. A zero is returned in
        the success case that will indicate that all the series
-       are less than HALF long. 
+       are less than HALF long.
     """
     for current in range(MAX):
         tmp_list = []
