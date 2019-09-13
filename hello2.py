@@ -53,28 +53,38 @@ def populate_series_list(random_list, series_list):
        the success case that will indicate that all the series
        are less than HALF long.
     """
-    for current in range(MAX):
+    idxset = set(range(MAX+1))
+
+    current = min(idxset)
+    while current < MAX:
         tmp_list = []
         index = current
 
         if (random_list[index] == current):
             tmp_list.append(index)
-        while (random_list[index] != current):
+        else:
+            while (random_list[index] != current):
+                tmp_list.append(index)
+                index = random_list[index]
+
             tmp_list.append(index)
-            index = random_list[index]
 
         if len(tmp_list) > HALF:
             dest_index = tmp_list[HALF-1]
             src_index = tmp_list[-1]
+
             tmp = random_list[dest_index]
             random_list[dest_index] = random_list[src_index]
             random_list[src_index] = tmp
+            
             print "Swapping ", dest_index, " with ", src_index
             print random_list
-            return 1
+            return True
         else:
+            idxset = idxset - set(tmp_list)
+            current = min(idxset)
             series_list.append(tmp_list)
-    return 0
+    return False
 
 
 if __name__ == "__main__":
