@@ -53,30 +53,50 @@ def populate_series_list(random_list, series_list):
        the success case that will indicate that all the series
        are less than HALF long.
     """
+    # create a set from 0 to MAX inclusive
     idxset = set(range(MAX+1))
 
+    # start at the bottom, but could be pretty much anywhere
     current = min(idxset)
-    while (current < MAX):
+    # the process will continue until the value is MAX proper
+    # the list we are processing goes from 0 to MAX-1
+    while current < MAX:
         tmp_list = []
         index = current
 
-        if (random_list[index] == current):
+        # here is a while that might be better off as a
+        # do-while but python doens't have one so there
+        # is a following action that mimics doing the
+        # action regardless of the while test. This is
+        # necessary to get the len(1) chains, and to
+        # actually include the last item when the list
+        # is calculated
+        while (random_list[index] != current):
             tmp_list.append(index)
-        else:
-            while (random_list[index] != current):
-                tmp_list.append(index)
-                index = random_list[index]
+            index = random_list[index]
+        tmp_list.append(index)
+        index = random_list[index]
 
-            tmp_list.append(index)
-
+        # This if() performs logic that might better be
+        # a separate function, leaving just the else()
+        # would make this simply return the unmodified
+        # chains. However, it is here because at this
+        # point the goal is to solve the puzzle and
+        # it adds a layer of efficiency.
         if len(tmp_list) > HALF:
+            # This is short circuit logic for keeping the chains
+            # shorter than HALF the total length
+
+            # setup the values/positions to swap
             dest_index = tmp_list[HALF-1]
             src_index = tmp_list[-1]
 
+            # here is where the swap occurs
             tmp = random_list[dest_index]
             random_list[dest_index] = random_list[src_index]
             random_list[src_index] = tmp
-            
+
+            del series_list[:]
             print ("Swapping ", dest_index, " with ", src_index)
             print (random_list)
             return True
@@ -89,3 +109,4 @@ def populate_series_list(random_list, series_list):
 
 if __name__ == "__main__":
     main()
+
