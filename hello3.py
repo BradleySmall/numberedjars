@@ -1,9 +1,4 @@
 #!/usr/bin/python3
-<<<<<<< HEAD
-
-import random
-
-=======
 """
 Program to show solution to numbered 100 jars problem
 """
@@ -12,7 +7,6 @@ Program to show solution to numbered 100 jars problem
 import random
 
 
->>>>>>> cc6c313aa249281714532ac66a772576dbff3693
 MAX = 10   # Change this line to 100 if you are so inclined
 HALF = MAX//2
 
@@ -25,11 +19,7 @@ def main():
     random_list = random.sample(range(MAX), MAX)
     series_list = []
 
-<<<<<<< HEAD
-    print (random_list)
-=======
     print(random_list)
->>>>>>> cc6c313aa249281714532ac66a772576dbff3693
 
     # If populate_series_list returns a 1 then it has performed a swap
     # and will be called a second time on the adjusted list. This should
@@ -38,11 +28,7 @@ def main():
         populate_series_list(random_list, series_list)
 
     for i in series_list:
-<<<<<<< HEAD
-        print (i, len(i))
-=======
         print(i, len(i))
->>>>>>> cc6c313aa249281714532ac66a772576dbff3693
 
 
 def populate_series_list(random_list, series_list):
@@ -90,11 +76,7 @@ def populate_series_list(random_list, series_list):
         # necessary to get the len(1) chains, and to
         # actually include the last item when the list
         # is calculated
-<<<<<<< HEAD
         while (random_list[index] != current):
-=======
-        while random_list[index] != current:
->>>>>>> cc6c313aa249281714532ac66a772576dbff3693
             tmp_list.append(index)
             index = random_list[index]
         tmp_list.append(index)
@@ -120,15 +102,6 @@ def populate_series_list(random_list, series_list):
             random_list[src_index] = tmp
 
             del series_list[:]
-<<<<<<< HEAD
-            print ("Swapping ", dest_index, " with ", src_index)
-            print (random_list)
-            return True
-        else:
-            idxset = idxset - set(tmp_list)
-            current = min(idxset)
-            series_list.append(tmp_list)
-=======
             print("Swapping ", dest_index, " with ", src_index)
             print(random_list)
             return True
@@ -137,13 +110,8 @@ def populate_series_list(random_list, series_list):
         current = min(idxset)
         series_list.append(tmp_list)
 
->>>>>>> cc6c313aa249281714532ac66a772576dbff3693
     return False
 
 
 if __name__ == "__main__":
     main()
-<<<<<<< HEAD
-
-=======
->>>>>>> cc6c313aa249281714532ac66a772576dbff3693
