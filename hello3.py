@@ -76,7 +76,7 @@ def populate_series_list(random_list, series_list):
         # necessary to get the len(1) chains, and to
         # actually include the last item when the list
         # is calculated
-        while (random_list[index] != current):
+        while random_list[index] != current:
             tmp_list.append(index)
             index = random_list[index]
         tmp_list.append(index)

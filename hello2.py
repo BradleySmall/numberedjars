@@ -19,16 +19,16 @@ def main():
     random_list = random.sample(range(MAX), MAX)
     series_list = []
 
-    print random_list
+    print(random_list)
 
     # If populate_series_list returns a 1 then it has performed a swap
     # and will be called a second time on the adjusted list. This should
     # never require more than one retry
     if populate_series_list(random_list, series_list):
-        populate_series_list(random_list, series_list) 
+        populate_series_list(random_list, series_list)
 
     for i in series_list:
-        print i, len(i)
+        print(i, len(i))
 
 
 def populate_series_list(random_list, series_list):
@@ -76,7 +76,7 @@ def populate_series_list(random_list, series_list):
         # necessary to get the len(1) chains, and to
         # actually include the last item when the list
         # is calculated
-        while (random_list[index] != current):
+        while random_list[index] != current:
             tmp_list.append(index)
             index = random_list[index]
         tmp_list.append(index)
@@ -102,13 +102,14 @@ def populate_series_list(random_list, series_list):
             random_list[src_index] = tmp
 
             del series_list[:]
-            print "Swapping ", dest_index, " with ", src_index
-            print random_list
+            print("Swapping ", dest_index, " with ", src_index)
+            print(random_list)
             return True
-        else:
-            idxset = idxset - set(tmp_list)
-            current = min(idxset)
-            series_list.append(tmp_list)
+
+        idxset = idxset - set(tmp_list)
+        current = min(idxset)
+        series_list.append(tmp_list)
+
     return False
 
 
