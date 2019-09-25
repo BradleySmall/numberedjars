@@ -1,6 +1,14 @@
 #!/usr/bin/python2
+<<<<<<< HEAD:hello2.py
+=======
+"""
+Program to show solution to numbered 100 jars problem
+"""
+
+>>>>>>> cc6c313aa249281714532ac66a772576dbff3693:hello2.py
 
 import random
+
 
 MAX = 10   # Change this line to 100 if you are so inclined
 HALF = MAX/2
@@ -71,7 +79,11 @@ def populate_series_list(random_list, series_list):
         # necessary to get the len(1) chains, and to
         # actually include the last item when the list
         # is calculated
+<<<<<<< HEAD:hello2.py
         while (random_list[index] != current):
+=======
+        while random_list[index] != current:
+>>>>>>> cc6c313aa249281714532ac66a772576dbff3693:hello2.py
             tmp_list.append(index)
             index = random_list[index]
         tmp_list.append(index)
@@ -100,10 +112,18 @@ def populate_series_list(random_list, series_list):
             print "Swapping ", dest_index, " with ", src_index
             print random_list
             return True
+<<<<<<< HEAD:hello2.py
         else:
             idxset = idxset - set(tmp_list)
             current = min(idxset)
             series_list.append(tmp_list)
+=======
+
+        idxset = idxset - set(tmp_list)
+        current = min(idxset)
+        series_list.append(tmp_list)
+
+>>>>>>> cc6c313aa249281714532ac66a772576dbff3693:hello2.py
     return False
 
 
